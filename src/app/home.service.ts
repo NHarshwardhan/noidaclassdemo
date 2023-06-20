@@ -51,13 +51,22 @@ export class HomeService {
         message = `code : ${error.status} \n Message = ${error.message}`
         throw(message)
    }
+  // getListInfo():Observable<any>{
+  //    return this.http.get(
+  //     `https://examhall.onrender.com/api/user/list`,{
+  //       headers: new HttpHeaders({
+  //            'Authorization': `Bearer eyJhbGciOwqweqweqweqweqweqweiJIUzIqwwqewqewqe1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhmZmFlZDg5MmIyNDAwMzMzMzcxZDYiLCJpYXQiOjE2ODcxNTc1MDF9.-Bsoa-ppnhnS3EUIl27QNEJtGntmymDw6KW2sMo8EiY`
+  //       })
+  //     }
+  //    )
+  // }
+
   getListInfo():Observable<any>{
-     return this.http.get(
-      `https://examhall.onrender.com/api/user/list`,{
-        headers: new HttpHeaders({
-             'Authorization': `Bearer eyJhbGciOwqweqweqweqweqweqweiJIUzIqwwqewqewqe1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDhmZmFlZDg5MmIyNDAwMzMzMzcxZDYiLCJpYXQiOjE2ODcxNTc1MDF9.-Bsoa-ppnhnS3EUIl27QNEJtGntmymDw6KW2sMo8EiY`
-        })
-      }
-     )
-  }
+    return this.http.get('https://jsonplaceholder.typicode.com/users')
+
+ }
+ getListInfoById(id: string | null):Observable<any>{
+  return this.http.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+
+}
 }

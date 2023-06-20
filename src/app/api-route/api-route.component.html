@@ -1,1 +1,21 @@
-<p>api-route works!</p>
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>USERNAME</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of users">
+      <td>
+         <a [routerLink]="['/users/details',u.id]"> {{u.id}}</a>
+        </td>
+      <td>{{u.name}}</td>
+      <td>{{u.username}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<router-outlet></router-outlet>

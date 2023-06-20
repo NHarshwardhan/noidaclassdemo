@@ -9,6 +9,8 @@ import { nestedProtectionGuard } from './nested-protection.guard';
 import { ApiRouteComponent } from './api-route/api-route.component';
 import { cakeReducer } from './store/cake.reducer';
 import { CakeContainerComponent } from './cake-container/cake-container.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -22,9 +24,15 @@ const routes: Routes = [
            {path:'policy', component:PolicyComponent}
       ]
     },
+    {path:'**', component:PageNotFoundComponent},
     {path:'cake', component: CakeContainerComponent},
-    {path:'users', component:ApiRouteComponent},
-  {path:'login', component: LoginComponent,canDeactivate:[leaveRouteGuard]}
+    {path:'users', component:ApiRouteComponent,children:[
+      {path:'details/:id', component:UserDetailsComponent},
+    ]},
+
+  {path:'login', component: LoginComponent,canDeactivate:[leaveRouteGuard]},
+
+
 ];
 
 @NgModule({

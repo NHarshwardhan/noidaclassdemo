@@ -8,13 +8,15 @@ import { HomeService } from '../home.service';
 })
 export class ApiRouteComponent {
 
+    users:any
     constructor(private homeService:HomeService){}
 
 
     ngOnInit(){
        this.homeService.getListInfo().subscribe({
            next:(response)=>{
-              console.log(response)
+            console.log(response)
+              this.users = response
            },
            error:(reject)=>{
                console.log(reject.error)

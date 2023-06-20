@@ -14,6 +14,10 @@ import { cakeReducer } from './store/cake.reducer';
 import { StoreModule } from '@ngrx/store';
 import { CakeContainerComponent } from './cake-container/cake-container.component';
 import { TestComponent } from './test/test.component';
+import { TodoContainerComponent } from './todo-container/todo-container.component';
+import { todoReducer } from './store/todo.reducer';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +27,16 @@ import { TestComponent } from './test/test.component';
     PolicyComponent,
     ApiRouteComponent,
     CakeContainerComponent,
-    TestComponent
+    TestComponent,
+    TodoContainerComponent,
+    UserDetailsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,HttpClientModule,
-    StoreModule.forRoot({cake:cakeReducer})
+    StoreModule.forRoot({todo:todoReducer})
   ],
   providers: [
     {
