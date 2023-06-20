@@ -10,6 +10,10 @@ import { PolicyComponent } from './policy/policy.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MyInterceptorInterceptor } from './my-interceptor.interceptor';
 import { ApiRouteComponent } from './api-route/api-route.component';
+import { cakeReducer } from './store/cake.reducer';
+import { StoreModule } from '@ngrx/store';
+import { CakeContainerComponent } from './cake-container/cake-container.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +21,15 @@ import { ApiRouteComponent } from './api-route/api-route.component';
     HomeComponent,
     LoginComponent,
     PolicyComponent,
-    ApiRouteComponent
+    ApiRouteComponent,
+    CakeContainerComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,HttpClientModule
+    ReactiveFormsModule,HttpClientModule,
+    StoreModule.forRoot({cake:cakeReducer})
   ],
   providers: [
     {

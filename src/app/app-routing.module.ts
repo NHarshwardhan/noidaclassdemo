@@ -7,6 +7,8 @@ import { leaveRouteGuard } from './leave-route.guard';
 import { PolicyComponent } from './policy/policy.component';
 import { nestedProtectionGuard } from './nested-protection.guard';
 import { ApiRouteComponent } from './api-route/api-route.component';
+import { cakeReducer } from './store/cake.reducer';
+import { CakeContainerComponent } from './cake-container/cake-container.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,7 @@ const routes: Routes = [
            {path:'policy', component:PolicyComponent}
       ]
     },
+    {path:'cake', component: CakeContainerComponent},
     {path:'users', component:ApiRouteComponent},
   {path:'login', component: LoginComponent,canDeactivate:[leaveRouteGuard]}
 ];
