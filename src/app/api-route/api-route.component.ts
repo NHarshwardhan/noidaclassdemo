@@ -13,14 +13,15 @@ export class ApiRouteComponent {
 
 
     ngOnInit(){
-       this.homeService.getListInfo().subscribe({
-           next:(response)=>{
-            console.log(response)
-              this.users = response
-           },
-           error:(reject)=>{
-               console.log(reject.error)
-           }
-       })
+      this.users =   this.homeService.getListInfo()
+      //  this.homeService.getListInfo().subscribe({
+      //      next:(response)=>{
+      //       console.log(response)
+      //         this.users = response
+      //      },
+      //      error:(reject)=>{
+      //          console.log(reject.error)
+      //      }
+      //  })
     }
 }

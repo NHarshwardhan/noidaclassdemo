@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LazyElementsModule } from '@angular-extensions/elements';
 import { UserModule } from './user/user.module';
 import { SharedModule } from './shared/shared.module';
+import { createCustomElement } from '@angular/elements';
 
 @NgModule({
   declarations: [
@@ -45,12 +46,19 @@ SharedModule,
       multi:true
     }
   ],
-  bootstrap: [AppComponent],
+  // bootstrap: [AppComponent],
 
 })
 export class AppModule {
 
-  constructor(){
-      console.log('App Module Loaded')
-  }
+     constructor(private injector: Injector){}
+
+     ngDoBootstrap(){
+        const element = createCustomElement(AppComponent,{
+              injector: this.injector
+          })
+      customElements.define('app-micro-fe',element)
+
+     }
+
  }
