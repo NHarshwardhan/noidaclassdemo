@@ -62,11 +62,11 @@ export class HomeService {
   // }
 
   getListInfo():Observable<any>{
-    return this.http.get('https://jsonplaceholder.typicode.com/users')
+    return this.http.get('http://localhost:3000/users')
 
  }
  getListInfoById(id: string | null):Observable<any>{
-  return this.http.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+  return this.http.get(`http://localhost:3000/users/${id}`)
 
 }
 }
