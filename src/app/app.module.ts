@@ -20,6 +20,7 @@ import { LazyElementsModule } from '@angular-extensions/elements';
 import { UserModule } from './user/user.module';
 import { SharedModule } from './shared/shared.module';
 import { createCustomElement } from '@angular/elements';
+import { TestDemoComponent } from './test-demo/test-demo.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { createCustomElement } from '@angular/elements';
     CakeContainerComponent,
     TestComponent,
     TodoContainerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TestDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,7 @@ SharedModule,
       multi:true
     }
   ],
-  // bootstrap: [AppComponent],
+  bootstrap: [AppComponent],
 
 })
 export class AppModule {

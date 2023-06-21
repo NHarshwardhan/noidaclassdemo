@@ -1,1 +1,24 @@
 https://docs.google.com/document/d/1tEoOlJ19iYDvecuxjbrY0TM4tvL5DCceI2bveEz0VSE/edit
+
+
+Steps :
+ - ng add @angular/elements
+ - app.module.ts
+    export class AppModule {
+
+     constructor(private injector: Injector){}
+
+     ngDoBootstrap(){
+        const element = createCustomElement(AppComponent,{
+              injector: this.injector
+          })
+      customElements.define('app-micro-fe',element)
+
+     }
+
+ }
+
+npm i @angular-extensions/elements
+
+app.module.ts
+
