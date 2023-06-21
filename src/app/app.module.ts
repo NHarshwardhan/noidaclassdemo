@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,15 +9,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PolicyComponent } from './policy/policy.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MyInterceptorInterceptor } from './my-interceptor.interceptor';
-import { ApiRouteComponent } from './api-route/api-route.component';
 import { cakeReducer } from './store/cake.reducer';
 import { StoreModule } from '@ngrx/store';
 import { CakeContainerComponent } from './cake-container/cake-container.component';
 import { TestComponent } from './test/test.component';
 import { TodoContainerComponent } from './todo-container/todo-container.component';
 import { todoReducer } from './store/todo.reducer';
-import { UserDetailsComponent } from './user-details/user-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LazyElementsModule } from '@angular-extensions/elements';
+import { UserModule } from './user/user.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,16 +26,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HomeComponent,
     LoginComponent,
     PolicyComponent,
-    ApiRouteComponent,
     CakeContainerComponent,
     TestComponent,
     TodoContainerComponent,
-    UserDetailsComponent,
     PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+SharedModule,
     ReactiveFormsModule,HttpClientModule,
     StoreModule.forRoot({todo:todoReducer})
   ],
@@ -45,6 +45,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
       multi:true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(){
+      console.log('App Module Loaded')
+  }
+ }
