@@ -39,7 +39,7 @@ import { TestDemoComponent } from './test-demo/test-demo.component';
     AppRoutingModule,
 SharedModule,
     ReactiveFormsModule,HttpClientModule,
-    StoreModule.forRoot({todo:todoReducer})
+    StoreModule.forRoot({cake:cakeReducer})
   ],
   providers: [
     {
